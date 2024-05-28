@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Article extends Model
 {
     use HasFactory;
-    
+
     protected $fillable = [
         'nom',
         'description',
@@ -17,4 +17,9 @@ class Article extends Model
         'valider',
 
     ];
+
+    public function commentaires()
+    {
+        return $this->hasMany(Commentaire::class, 'article_id', 'id');
+    }
 }

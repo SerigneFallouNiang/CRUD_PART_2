@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('contenu');
             $table->string('nom_complet_auteur');
             $table->string('date_heure_creation');
+            $table->foreignId('article_id')->constrained('articles')->onDelete('cascade');
             $table->timestamps();
         });
     }
