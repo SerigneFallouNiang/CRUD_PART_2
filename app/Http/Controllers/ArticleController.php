@@ -12,6 +12,12 @@ class ArticleController extends Controller
         $articles = Article::all();
         return view ('articles.index' , compact('articles'));
     }
+    
+    public function detail($id){
+        $article=Article::find($id);        
+        return view ('articles.detail' , compact('article'));
+    }
+
     public function ajouter_article()
     {
         return view('articles.ajouter');
@@ -48,4 +54,35 @@ class ArticleController extends Controller
         $article->delete();
         return redirect('/')->with('status','L\'article a bien été supprimé avec succes.');
     }
+
+    public function update_article($id){
+        $articles=Article::find($id);
+        return view ('articles.update', compact('articles') );
 }
+
+public function update_article_traitement(Request $request){
+
+    $request->validate([
+        
+        'nom'  => 'required',
+        'description'  => 'required',
+        'date_création'  => 'required',
+        'photo'  => 'required',
+        'valider'  => 'required',
+    ]);
+ 
+    $article= Article::find($request->id);
+        $article->nom = $request->nom;
+        $article->description = $request->description;
+        $article->date_création = $request->date_création;
+        $article->photo = $request->photo;
+        $article->valider= $request->valider;
+
+        $article->update();
+
+        return redirect('/')->with('status', 'L\'article a bien été modifié avec succès.');
+
+}
+}
+
+

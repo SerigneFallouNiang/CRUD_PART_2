@@ -10,8 +10,20 @@ Route::post('/ajouter/traitement', [ArticleController::class, 'ajouter_article_t
 
 Route::get('/delete-article/{id}', [ArticleController::class, 'delete_article']);
 
-
 Route::get('/', [ArticleController::class, 'index']);
+
+Route::get('/update-article/{id}', [ArticleController::class, 'update_article']);
+Route::post('/update/traitement', [ArticleController::class, 'update_article_traitement']);
+
+Route::get('/detail/{id}', [ArticleController::class, 'detail']);
+
+
+
+
+
+
+
 Route::get('/commentaire', [CommentaireController::class, 'commentaire']);
+
 
 
