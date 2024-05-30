@@ -23,7 +23,12 @@ Route::get('/detail/{id}', [ArticleController::class, 'detail']);
 
 
 
-Route::get('/commentaire', [CommentaireController::class, 'commentaire']);
+
+Route::get('/commentaire/{id}', [ArticleController::class, 'commentaire']);
+Route::post('/ajouterCommentaire/traitement', [CommentaireController::class, 'ajouter_commentaire_traitement']);
 
 
+Route::get('/update-commentaire/{id}', [CommentaireController::class, 'update_commentaire']);
+Route::post('/updateCommentaire/traitement', [CommentaireController::class, 'update_commentaire_traitement']);
 
+Route::get('/delete-commentaire/{id}', [CommentaireController::class, 'delete_commentaire']);

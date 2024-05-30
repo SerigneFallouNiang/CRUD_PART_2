@@ -24,8 +24,8 @@
                 <p class="card-text">{{$article ->description}}</p>
             </div>
             <div class="card-body">
-                <a href="/article" class="card-link">Retour</a>
-                <a href="/update-article/{{$article->id}}" class="card-link">Modifier</a>
+                <a href="/" class="card-link">Retour</a>
+                <a href="/commentaire/{{$article->id}}" class="btn btn-info">Commentaire</a>
             </div>
         </div>
     </div>

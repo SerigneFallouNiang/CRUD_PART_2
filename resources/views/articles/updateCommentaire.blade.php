@@ -33,25 +33,16 @@
         <div class="row">
             <div class="col-sm-5 col-md-6 col-12 pb-4">
                 <h1>Commentaires</h1>
-                @foreach($article->commentaires  as $commentaire)
-                <div class="comment mt-4 text-justify float-left">
-                    <img src="https://i.imgur.com/yTFUilP.jpg" alt="" class="rounded-circle" width="40" height="40">
-                    <h4>{{$commentaire->nom_complet_auteur}}</h4>
-                    <span>- 20 October, 2018</span>
-                    <br>
-                    <p>{{$commentaire->contenu}}</p>
-                </div>
-                <a href="/update-commentaire/{{$commentaire->id}}" class="btn btn-info">Modifier</a>
-                <a href="/delete-commentaire/{{$commentaire->id}}" class="btn btn-danger">Supprimer</a>
+               
 
 
-                @endforeach
+              
                
  
                
             </div>
             <div class="col-lg-4 col-md-5 col-sm-4 offset-md-1 offset-sm-1 col-12 mt-4">
-                <form id="algin-form" action="/ajouterCommentaire/traitement" method="POST" class="form-group" enctype="multipart/form-data">
+                <form id="algin-form" action="/updateCommentaire/traitement" method="POST" class="form-group" enctype="multipart/form-data">
                     @csrf
                     @if (session('status'))
                     <div class="alert alert-succes">
@@ -67,27 +58,27 @@
                     </ul>
                     <div class="form-group">
                         <h4>Leave a comment</h4>
+                        <input type="text" name="id" style="display: none;"  value="{{$commentaires->id}}">
+
                         <label for="message">Message</label>
-                        <textarea name="contenu" id=""msg cols="30" rows="5" class="form-control" style="background-color: black;" name="contenu"></textarea>
+                        <textarea name="contenu" id=""msg cols="30" rows="5" class="form-control" style="background-color: black;" name="contenu">{{$commentaires->contenu}}</textarea>
                     </div>
                     <div class="form-group">
                         <label for="name">Nom</label>
-                        <input type="text" name="nom_complet_auteur" id="fullname" class="form-control">
+                        <input type="text" name="nom_complet_auteur" id="fullname" class="form-control" value="{{$commentaires->nom_complet_auteur}}">
                     </div>
                     <div class="form-group">
                         <label for="email">Date</label>
-                        <span>- {{ $commentaire->created_at->format('d M, Y') }}</span>
-                        <input type="date" name="date_heure_creation" id="email" class="form-control">
+                        <span>- {{ $commentaires->created_at->format('d M, Y') }}</span>
+                        <input type="date" name="date_heure_creation" id="email" class="form-control" value="{{$commentaires->date_heure_creation}}">
                     </div>
                     <div class="form-group">
                         <label for="email">Article_id</label>
-                        {{-- <input type="number" name="article_id" id="email" class="form-control">  --}}
-                        <input type="text" name="article_id" style="display: none;"  value="{{$article->id}}">
-
+                        <input type="number" name="article_id" id="email" class="form-control" value="{{$commentaires->article_id}}">
                     </div>
                     <br><br>
                     <div class="form-group">
-                        <button type="submit" class="btn btn-primary">AJOUTER UN COMMENTAIRE</button>
+                        <button type="submit" class="btn btn-primary">Modifier UN COMMENTAIRE</button>
                     </div>
                 </form>
             </div>
