@@ -19,7 +19,7 @@ public function delete_commentaire($id)
 {
     $commentaire=Commentaire::find($id);
     $commentaire->delete();
-    return redirect('/commentaire/{id}')->with('status','L\'article a bien été supprimé avec succes.');
+    return redirect()->to('commentaire/' . $commentaire->article_id)->with('status', 'Commentaire supprimé avec succès');
 }
  
 
@@ -41,7 +41,7 @@ public function delete_commentaire($id)
         $commentaire->article_id=$request->article_id;
         $commentaire->save();
 
-        return redirect('/')->with('status','L\'commentaire a bien été ajouté avec succes.');
+        return redirect()->to('commentaire/' . $commentaire->article_id)->with('status', 'Commentaire ajouté avec succès');
     }
 
 
@@ -66,10 +66,8 @@ public function update_commentaire_traitement(Request $request){
     $commentaire->contenu=$request->contenu;
     $commentaire->date_heure_creation=$request->date_heure_creation;
     $commentaire->article_id=$request->article_id;
-        $commentaire->update();
-
-        return redirect('/commentaire')->with('status', 'L\'commentaire a bien été modifié avec succès.');
-
+    $commentaire->update();
+    return redirect()->to('commentaire/' . $commentaire->article_id)->with('status', 'Commentaire mis à jour avec succès');
 }
 }
 

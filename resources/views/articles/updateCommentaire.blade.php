@@ -61,7 +61,7 @@
                         <input type="text" name="id" style="display: none;"  value="{{$commentaires->id}}">
 
                         <label for="message">Message</label>
-                        <textarea name="contenu" id=""msg cols="30" rows="5" class="form-control" style="background-color: black;" name="contenu">{{$commentaires->contenu}}</textarea>
+                        <textarea name="contenu" id=""msg cols="30" rows="5" class="form-control" style="background-color: white;" name="contenu">{{$commentaires->contenu}}</textarea>
                     </div>
                     <div class="form-group">
                         <label for="name">Nom</label>
@@ -73,8 +73,8 @@
                         <input type="date" name="date_heure_creation" id="email" class="form-control" value="{{$commentaires->date_heure_creation}}">
                     </div>
                     <div class="form-group">
-                        <label for="email">Article_id</label>
-                        <input type="number" name="article_id" id="email" class="form-control" value="{{$commentaires->article_id}}">
+                    
+                        <input type="text" name="article_id" style="display: none;"  value="{{$commentaires->article_id}}">
                     </div>
                     <br><br>
                     <div class="form-group">
