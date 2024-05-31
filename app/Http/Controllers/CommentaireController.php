@@ -10,11 +10,6 @@ use Illuminate\Http\Request;
 class CommentaireController extends Controller
 {
 
-//     public function commentaire($id){
-//         $commentaires=Commentaire::find($id);
-//         return view ('articles.commentaire', compact('commentaires') );
-// }
-
 public function delete_commentaire($id)
 {
     $commentaire=Commentaire::find($id);

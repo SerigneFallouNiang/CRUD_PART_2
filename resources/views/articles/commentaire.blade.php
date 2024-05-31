@@ -83,7 +83,7 @@ body{
 
 .comment{
     border: 1px solid black;
-    background-color: #3093BA
+    background-color: #46127e;
     float: left;
     border-radius: 5px;
     padding-left: 40px;
@@ -131,7 +131,7 @@ label{
 
 form{
     border: 1px solid rgba(16, 46, 46, 1);
-    background-color: #3093BA;
+    background-color: #46127e;
     border-radius: 5px;
     padding: 20px;
  }</style>  
