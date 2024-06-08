@@ -56,7 +56,7 @@
 }
 
 body{
-    background-color: white;
+    background-color: rgba(70, 18, 126,0.7);
 }
 
 #nav-items li a,#profile{
@@ -83,7 +83,7 @@ body{
 
 .comment{
     border: 1px solid black;
-    background-color: #46127e;
+    background-color:#46127e;
     float: left;
     border-radius: 5px;
     padding-left: 40px;
@@ -157,8 +157,8 @@ form{
                     <span>- 20 October, 2018</span>
                     <br>
                     <p>{{$commentaire->contenu}}</p>
-                    <a href="/update-commentaire/{{$commentaire->id}}" class="btn btn-info">Modifier</a>
-                <a onclick="return confirm('Confirmer la suppression')" href="/delete-commentaire/{{$commentaire->id}}" class="btn btn-danger">Supprimer</a>
+                    <a href="/update-commentaire/{{$commentaire->id}}" class="btn-info"><strong>Modifier</strong></a>
+                <a onclick="return confirm('Confirmer la suppression')" href="/delete-commentaire/{{$commentaire->id}}" class="btn-danger" style="text-decortion:none; color:red;"><strong>Supprimer</strong></a>
                 </div>
                 
 

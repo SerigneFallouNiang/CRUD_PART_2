@@ -5,17 +5,10 @@ use App\Models\Article;
 use App\Http\Controllers\ArticleController;
 use App\Models\Commentaire;
 use App\Http\Controllers\CommentaireController;
-
-
-
 use Illuminate\Http\Request;
 
 class ArticleController extends Controller
-
 {
-
-
-
 public function commentaire($id){
     // Trouver l'article avec les commentaires
     $article = Article::with('commentaires')->find($id);
